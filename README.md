@@ -192,10 +192,11 @@ pipedrive.SearchResults.field({
 
 ## Retrieve all records for a given object type:
 
-You can request all entries for an valid object using `getAll(object, callback)`
+You can request all entries for an valid object using `getAll(object, params, callback)` or `getAll(object, callback)`
+This will cycle through and retrieve every entry for a valid object type. The start and limit are calculated dynamically to retrieve every entry.  Only `sort` and `filter_id` can be passed as parameters.
 
 ```js
-pipedrive.getAll('Organizatons', function (err, collection) {
+pipedrive.getAll('Organizatons', { sort: 'field_name_1 ASC'}, function (err, collection) {
 	// collection contains all Organizations
 });
 
